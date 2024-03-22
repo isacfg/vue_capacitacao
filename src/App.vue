@@ -28,13 +28,6 @@ import { ref } from 'vue'
 
 		<RouterView />
 
-		<!--<div class="search">
-			<input type="text" v-model="searchQuery" placeholder="Search for a character">
-			<button @click="fetchMarvel">Search</button>
-		</div>
-		<div class="results">
-			<img v-if="imgPath" :src="imgPath" alt="character">
-		</div>-->
 	</main>
 
 

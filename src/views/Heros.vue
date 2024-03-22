@@ -2,22 +2,14 @@
 import { ref } from 'vue'
 import HeroCard from '@/components/HeroCard.vue'
 
-const isLoading = ref(false)
-const busca = ref('')
-const results = ref([])
+//const res = await fetch('http://gateway.marvel.com/v1/public/characters?nameStartsWith=' + busca.value + '&limit=60&apikey=ebd7c1228a53966885f0dbaffd4a9a64')
+//:img-path="`${hero.thumbnail.path}/standard_fantastic.${hero.thumbnail.extension}`"
+
 
 const fetchHeros = async () => {
 	isLoading.value = true
 	try {
-		const res = await fetch('http://gateway.marvel.com/v1/public/characters?nameStartsWith=' + busca.value + '&limit=60&apikey=ebd7c1228a53966885f0dbaffd4a9a64')
 
-		if (!res.ok) {
-			throw new Error(`HTTP com erro, status: ${res.status}`);
-		}
-		const data = await res.json()
-		results.value = data.data.results
-
-		console.log(data)
 
 	} catch (error) {
 		console.error(error)
@@ -35,7 +27,7 @@ const fetchHeros = async () => {
 
 		<div class="search flex gap-x-4 w-full items-center justify-center">
 			<label class="input input-bordered flex items-center gap-2 bg-transparent input-busca w-1/2">
-				<input type="text" v-model="busca" class="grow" placeholder="Search" />
+				<input type="text" class="grow" placeholder="Search" />
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
 					class="w-4 h-4 opacity-70">
 					<path fill-rule="evenodd"
@@ -44,17 +36,16 @@ const fetchHeros = async () => {
 				</svg>
 			</label>
 
-			<button @click="fetchHeros" class="btn btn-primary bg-[#1f1f1f] border-[#1f1f1f]">Search</button>
+			<button class="btn btn-primary bg-[#1f1f1f] border-[#1f1f1f]">Search</button>
 		</div>
 
-		<div v-if="isLoading == true" class="container mx-auto flex items-center justify-center mt-24 h-full">
+		<div class="container mx-auto flex items-center justify-center mt-24 h-full">
 			<span class="loading loading-spinner loading-lg"></span>
 		</div>
 
 		<!-- heroes card -->
 		<div v-if="results.length !== 0" class="grid grid-cols-3 gap-4 mt-16 mx-auto w-full ">
-			<HeroCard v-for="hero in results" :key="hero.id" :data="hero"
-				:img-path="`${hero.thumbnail.path}/standard_fantastic.${hero.thumbnail.extension}`" />
+
 		</div>
 
 	</div>
