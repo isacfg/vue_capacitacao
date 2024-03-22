@@ -1,7 +1,6 @@
 import './assets/main.css'
 
 import { createApp } from 'vue'
-import VueCryptojs from 'vue-cryptojs'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
@@ -11,6 +10,5 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.use(VueCryptojs)
 
 app.mount('#app')

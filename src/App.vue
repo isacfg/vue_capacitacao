@@ -14,10 +14,10 @@ import { ref } from 'vue'
 			<div class="flex-none">
 				<ul class="menu menu-horizontal px-1 text-white">
 					<li>
-						<RouterLink to="/" class="btn btn-ghost">Heróis</RouterLink>
+						<!--<RouterLink to="/" class="btn btn-ghost">Heróis</RouterLink>-->
 					</li>
 					<li>
-						<RouterLink to="/about" class="btn btn-ghost">Quadrinhos</RouterLink>
+						<!--<RouterLink to="/about" class="btn btn-ghost">Quadrinhos</RouterLink>-->
 					</li>
 				</ul>
 			</div>
